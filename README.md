@@ -9,6 +9,11 @@ A Python-based sales calling agent using the Vapi platform for making outbound s
 workon multiagent
 ```
 
+or create virtualenv for first instance
+```bash
+mkvirtualenv multiagent
+```
+
 2. Install dependencies:
 ```bash
 pip install -r requirements.txt
