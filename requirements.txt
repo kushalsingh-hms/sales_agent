@@ -1,0 +1,5 @@
+daily-python
+requests
+python-dotenv
+vapi-python 
+pyaudio
