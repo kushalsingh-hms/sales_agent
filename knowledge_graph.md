@@ -118,11 +118,7 @@ graph TD
 
     class Healthcare,Finance,Retail,Manufacturing,Education sector
     class H1,H2,F1,F2,R1,R2,M1,M2,E1,E2 solution
-    class H1_Problem,H1_Solution,H1_Impact,H2_Problem,H2_Solution,H2_Impact,
-    F1_Problem,F1_Solution,F1_Impact,F2_Problem,F2_Solution,F2_Impact,
-    R1_Problem,R1_Solution,R1_Impact,R2_Problem,R2_Solution,R2_Impact,
-    M1_Problem,M1_Solution,M1_Impact,M2_Problem,M2_Solution,M2_Impact,
-    E1_Problem,E1_Solution,E1_Impact,E2_Problem,E2_Solution,E2_Impact detail
+    class H1_Problem,H1_Solution,H1_Impact,H2_Problem,H2_Solution,H2_Impact,F1_Problem,F1_Solution,F1_Impact,F2_Problem,F2_Solution,F2_Impact,R1_Problem,R1_Solution,R1_Impact,R2_Problem,R2_Solution,R2_Impact,M1_Problem,M1_Solution,M1_Impact,M2_Problem,M2_Solution,M2_Impact,E1_Problem,E1_Solution,E1_Impact,E2_Problem,E2_Solution,E2_Impact detail
 ```
 
 ## Description
