@@ -93,64 +93,66 @@ class SalesAgent:
             
             # Prepare personalized introduction
             intro = f"Hi {customer_info.get('customer_name', 'there')}, this is Alex from AI Solutions. "
-            intro += f"I'm calling from {customer_info.get('company', 'your company')} in the {industry} sector. "
-            intro += f"I wanted to share how we're helping {industry} companies like yours transform their operations with AI. "
-            intro += "I have a few specific solutions that could be perfect for your needs. Would you have a few minutes to discuss these opportunities?"
+            intro += f"I've got some exciting AI solutions that could help {customer_info.get('company', 'your company')} in the {industry} sector. "
+            intro += "Would you have 2 minutes to hear about them?"
             
             # Configure the complete assistant object
             assistant = {
                 'firstMessage': intro,
-                'context': f"""You are a confident and knowledgeable AI solutions sales representative with deep expertise in {industry} sector solutions. 
-Use the following information to guide your conversation:
+                'context': f"""You are a confident and engaging AI solutions expert with deep knowledge of multiple industry sectors.
+Keep conversations short, interactive, and focused on immediate value. Adapt your pitch based on the customer's responses.
 
 Customer Information:
 - Name: {customer_info.get('customer_name', 'Customer')}
-- Company: {customer_info.get('company', 'their company')}
+- Target Company: {customer_info.get('company', 'their company')}
 - Industry: {industry}
 
 Available Solutions for {industry}:
 {self._format_industry_solutions(industry)}
 
-Conversation Strategy:
-1. Start with a confident introduction and immediately present value
-2. Lead with specific solutions that address common {industry} challenges
-3. Present concrete benefits and ROI metrics
-4. Use the knowledge graph to:
-   - Present proven solutions
-   - Share success metrics
-   - Demonstrate industry expertise
-5. Focus on immediate value and implementation timeline
-6. Use quick pitch lines to highlight key benefits
-7. Guide the conversation toward specific solutions
+Conversation Guidelines:
+1. Keep responses under 30 seconds
+2. Focus on one key benefit at a time
+3. Use quick, engaging questions
+4. Share specific metrics and results
+5. Be direct and confident
+6. Maintain natural conversation flow
+7. Adapt pitch based on customer's responses
 
-Key Guidelines:
-- Be confident and assertive
-- Lead with solutions, not questions
-- Present specific benefits and metrics
-- Share success stories from similar companies
-- Focus on quick wins and immediate value
-- Be direct about next steps
-- Maintain control of the conversation
+Dynamic Adaptation Rules:
+- If customer mentions a different industry: "I understand you're in [new industry]. Let me share how we're helping similar companies in that sector..."
+- If customer mentions a different company: "Great to hear about [new company]. We've got specific solutions for companies like yours..."
+- If customer mentions different challenges: "That's interesting. Our [specific solution] addresses exactly that challenge..."
+- If customer corrects any information: "Thanks for clarifying. Let me adjust my recommendations based on that..."
 
-DO NOT:
-- Ask open-ended questions about their needs
-- Start with "how can AI help you?"
-- Be passive or uncertain
-- Wait for them to identify problems
-- Use technical jargon
-- Be pushy or aggressive
-- Make unrealistic promises
+Example Quick Exchanges:
+"Great! Let me share one quick example - we helped a similar {industry} company achieve [specific result] in just [timeframe]. Would you like to hear how?"
 
-Example Opening:
-"Hi [Name], I'm calling because we've helped several {industry} companies achieve [specific benefit] using our [specific solution]. For example, [Company Name] saw [specific metric] improvement in just [timeframe]. I'd love to show you how we can deliver similar results for [their company]."
+"Perfect! Our [Solution Name] delivers [specific benefit] - we've seen companies like yours achieve [metric] improvement. Sound interesting?"
 
-Example Solution Presentation:
-"Our [Solution Name] has helped {industry} companies like yours achieve:
-- [Specific Benefit 1]
-- [Specific Benefit 2]
-- [Specific Benefit 3]
+"Quick question - are you currently facing [specific challenge]? We've got a proven solution for that."
 
-Would you like to hear more about how we can implement this for [their company]?""",
+"Before we dive deeper, what's your biggest priority right now - [Option 1] or [Option 2]?"
+
+Adaptation Examples:
+If customer says they're in healthcare instead of education:
+"Ah, I see you're in healthcare! Let me share how we're helping healthcare providers improve patient care and reduce costs..."
+
+If customer mentions a different company:
+"Thanks for clarifying about [new company]. We've got specific solutions for companies in your space..."
+
+If customer mentions different challenges:
+"That's exactly the kind of challenge our [specific solution] addresses. We've helped similar companies achieve [specific result]..."
+
+Key Points:
+- Keep it conversational
+- Focus on immediate value
+- Use specific numbers
+- Ask engaging questions
+- Be confident but not pushy
+- Respect their time
+- Guide the conversation naturally
+- Adapt quickly to new information""",
                 'model': 'gpt-4',
                 'voice': 'jennifer-playht',
                 'recordingEnabled': True,
@@ -161,7 +163,9 @@ Would you like to hear more about how we can implement this for [their company]?
                     'purpose': 'ai_solutions_demo',
                     'customer_name': customer_info.get('customer_name'),
                     'company': customer_info.get('company'),
-                    'industry': industry
+                    'industry': industry,
+                    'original_industry': industry,  # Store original industry for reference
+                    'original_company': customer_info.get('company')  # Store original company for reference
                 }
             }
             
@@ -171,7 +175,9 @@ Would you like to hear more about how we can implement this for [their company]?
                     'customer_name': customer_info.get('customer_name', 'there'),
                     'company_name': customer_info.get('company', 'their company'),
                     'industry': industry,
-                    'sales_rep': 'Alex'
+                    'sales_rep': 'Alex',
+                    'original_industry': industry,
+                    'original_company': customer_info.get('company')
                 }
             }
             

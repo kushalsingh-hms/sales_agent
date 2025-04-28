@@ -3,3 +3,4 @@ requests
 python-dotenv
 vapi-python 
 pyaudio
+openai==0.28.1
