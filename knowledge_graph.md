@@ -1,28 +1,35 @@
 # AI Solutions Knowledge Graph
 
 ```mermaid
-graph TD
+graph LR
+    %% Main Sectors
     Healthcare[Healthcare Sector]
+    Finance[Finance Sector]
+    Retail[Retail Sector]
+    Manufacturing[Manufacturing Sector]
+    Education[Education Sector]
+
+    %% Healthcare Solutions
     H1[Patient Care Optimization]
     H2[Medical Imaging Analysis]
     
-    Finance[Finance Sector]
+    %% Finance Solutions
     F1[Fraud Detection]
     F2[Credit Risk Assessment]
     
-    Retail[Retail Sector]
+    %% Retail Solutions
     R1[Personalized Recommendations]
     R2[Inventory Optimization]
     
-    Manufacturing[Manufacturing Sector]
+    %% Manufacturing Solutions
     M1[Predictive Maintenance]
     M2[Quality Control]
     
-    Education[Education Sector]
+    %% Education Solutions
     E1[Personalized Learning]
     E2[Student Performance Prediction]
 
-    %% Connections between sectors
+    %% Connections between sectors and solutions
     Healthcare --> H1
     Healthcare --> H2
     Finance --> F1
@@ -46,66 +53,76 @@ graph TD
     E1 -.-> R1
     E2 -.-> F2
 
-    %% Healthcare Solutions
+    %% Healthcare Solution Details
     subgraph "Patient Care Optimization"
+        direction TB
         H1_Problem["Problem: Inefficient scheduling"]
         H1_Solution["Solution: Predictive analytics"]
         H1_Impact["Impact: 30% reduced wait times"]
     end
 
     subgraph "Medical Imaging Analysis"
+        direction TB
         H2_Problem["Problem: Time-consuming analysis"]
         H2_Solution["Solution: Computer vision"]
         H2_Impact["Impact: 40% faster diagnosis"]
     end
 
-    %% Finance Solutions
+    %% Finance Solution Details
     subgraph "Fraud Detection"
+        direction TB
         F1_Problem["Problem: Financial fraud"]
         F1_Solution["Solution: Anomaly detection"]
         F1_Impact["Impact: 60% faster detection"]
     end
 
     subgraph "Credit Risk Assessment"
+        direction TB
         F2_Problem["Problem: Inaccurate scoring"]
         F2_Solution["Solution: Predictive analytics"]
         F2_Impact["Impact: 25% more accurate"]
     end
 
-    %% Retail Solutions
+    %% Retail Solution Details
     subgraph "Personalized Recommendations"
+        direction TB
         R1_Problem["Problem: Low engagement"]
         R1_Solution["Solution: Recommendation systems"]
         R1_Impact["Impact: 30% sales increase"]
     end
 
     subgraph "Inventory Optimization"
+        direction TB
         R2_Problem["Problem: Stockouts"]
         R2_Solution["Solution: Demand forecasting"]
         R2_Impact["Impact: 25% reduction"]
     end
 
-    %% Manufacturing Solutions
+    %% Manufacturing Solution Details
     subgraph "Predictive Maintenance"
+        direction TB
         M1_Problem["Problem: Equipment failures"]
         M1_Solution["Solution: IoT analytics"]
         M1_Impact["Impact: 40% downtime reduction"]
     end
 
     subgraph "Quality Control"
+        direction TB
         M2_Problem["Problem: Defective products"]
         M2_Solution["Solution: Computer vision"]
         M2_Impact["Impact: 50% faster inspection"]
     end
 
-    %% Education Solutions
+    %% Education Solution Details
     subgraph "Personalized Learning"
+        direction TB
         E1_Problem["Problem: One-size-fits-all"]
         E1_Solution["Solution: Adaptive learning"]
         E1_Impact["Impact: 30% better outcomes"]
     end
 
     subgraph "Student Performance Prediction"
+        direction TB
         E2_Problem["Problem: At-risk students"]
         E2_Solution["Solution: Predictive analytics"]
         E2_Impact["Impact: 35% earlier intervention"]
